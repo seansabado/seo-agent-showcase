@@ -65,9 +65,9 @@ This is the full documentation index for seo-agent-showcase.
 
 ## Assets
 
-| File                                                                       | Purpose                  |
-| -------------------------------------------------------------------------- | ------------------------ |
-| [assets/ui-demo-laundromatai-app.png](assets/ui-demo-laundromatai-app.png) | UI screenshot of the app |
+| File                                             | Purpose                  |
+| ------------------------------------------------ | ------------------------ |
+| [ui-demo-kaoten-app.png](ui-demo-kaoten-app.png) | UI screenshot of the app |
 
 ---
 

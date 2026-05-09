@@ -2,7 +2,7 @@
 
 > This is an example of how I write a pull request description for a feature branch.  
 > It demonstrates the communication habits I bring to a team: context, decision rationale, test coverage, and explicit callouts for reviewers.  
-> See the [live PR example](https://github.com/seansabado/laundromatai-showcase/pulls) for a real version.
+> See the [live PR example](https://github.com/seansabado/seo-agent-showcase/pulls) for a real version.
 
 ---
 
@@ -16,7 +16,7 @@
 
 ### What
 
-Adds a failure-mode demo to the POS module and a real-time telemetry log panel so engineers (and interviewers) can observe the full queue lifecycle — including failure, retry, and recovery — not just the happy path.
+Adds a failure-mode demo to the Proposal Queue module and a real-time telemetry log panel so engineers (and interviewers) can observe the full queue lifecycle — including failure, retry, and recovery — not just the happy path.
 
 ### Why
 
@@ -38,7 +38,7 @@ This change adds:
 - `markStatus` now takes `from` + `to` instead of just `to` — gives the trace log full transition context
 - `retryCount` increments on retry (was always 0 before)
 
-**`index.tsx` (POS module)**
+**`index.tsx` (Proposal Queue module)**
 
 - Adds `simulateFailure` state wired to the toggle
 - Adds Telemetry Log panel with trace rows

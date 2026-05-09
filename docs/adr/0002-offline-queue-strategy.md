@@ -1,4 +1,4 @@
-# ADR 0002: Offline Queue for POS-Like Reliability
+# ADR 0002: Offline Queue for SEO Operations Reliability
 
 ## Status
 
@@ -6,7 +6,7 @@ Accepted
 
 ## Context
 
-POS workflows must tolerate intermittent connectivity without blocking operators.
+SEO operations workflows must tolerate intermittent connectivity without blocking operators.
 
 ## Decision
 

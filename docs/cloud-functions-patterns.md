@@ -35,8 +35,8 @@ onCall(request):
 
 ## Safe Example Callable Methods
 
-- createOrderSample
-- updateMachineStateSample
+- createProposalSample
+- updateRunnerStateSample
 - submitOfflineBatchSample
 
 ## Error Design

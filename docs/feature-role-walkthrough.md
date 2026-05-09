@@ -8,11 +8,11 @@ This document maps each feature module in the showcase to the role(s) that can a
 
 This showcase uses a simplified three-role model matching common SaaS ERP patterns:
 
-| Role      | Description                                                                            |
-| --------- | -------------------------------------------------------------------------------------- |
-| `owner`   | Full access — all modules, all branches, all settings                                  |
-| `manager` | Operational access — order management, machines, queue; no financial or config modules |
-| `staff`   | Limited operational access — order creation and machine status only                    |
+| Role      | Description                                                                              |
+| --------- | ---------------------------------------------------------------------------------------- |
+| `owner`   | Full access — all modules, all branches, all settings                                    |
+| `manager` | Operational access — proposal management, runners, queue; no financial or config modules |
+| `staff`   | Limited operational access — proposal creation and runner status only                    |
 
 In the showcase, role context is set via the **Tenant Switcher** (top-right of the app). Switching roles re-evaluates all guard checks.
 
@@ -22,10 +22,10 @@ In the showcase, role context is set via the **Tenant Switcher** (top-right of t
 
 | Feature              | owner | manager | staff | Guard Type                                       |
 | -------------------- | ----- | ------- | ----- | ------------------------------------------------ |
-| Create Fake Order    | ✅    | ✅      | ✅    | None — open to all authenticated users in tenant |
+| Create Fake Proposal | ✅    | ✅      | ✅    | None — open to all authenticated users in tenant |
 | Sync Queue           | ✅    | ✅      | ✅    | Online status gate only                          |
-| Set Machine State    | ✅    | ✅      | ✅    | Tenant guard                                     |
-| View Orders          | ✅    | ✅      | ✅    | Tenant guard                                     |
+| Set Runner State     | ✅    | ✅      | ✅    | Tenant guard                                     |
+| View Proposals       | ✅    | ✅      | ✅    | Tenant guard                                     |
 | View Offline Queue   | ✅    | ✅      | ✅    | Tenant guard                                     |
 | Simulate Fail (demo) | ✅    | ✅      | ❌    | Role guard (`manager` minimum)                   |
 | View Telemetry Log   | ✅    | ✅      | ❌    | Role guard (`manager` minimum)                   |

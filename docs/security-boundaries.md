@@ -42,7 +42,7 @@ This section describes what attack classes the demonstrated patterns are designe
 
 ### Threat 4: Audit Gap — Privileged Actions Without a Trail
 
-**Attack (insider):** A privileged user (admin, support staff) performs a destructive operation — deletes an order, modifies pricing — with no record of who did it or when.
+**Attack (insider):** A privileged user (admin, support staff) performs a destructive operation — deletes a proposal action or modifies task priority — with no record of who did it or when.
 
 **Why this is real:** Audit trails are often added after an incident, not before. By then the history is gone.
 

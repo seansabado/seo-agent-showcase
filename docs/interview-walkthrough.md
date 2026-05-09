@@ -29,7 +29,7 @@
 
 1. Start at `README.md` for goals and constraints.
 2. Show `docs/architecture.md` and ADR decisions.
-3. Walk through `src/example-pos/` offline queue flow.
+3. Walk through `src/example-pos/` proposal queue flow.
 4. Walk through `src/example-functions/` guard composition.
 5. Show test files and CI workflow.
 6. Close with tradeoffs and future work from case study.

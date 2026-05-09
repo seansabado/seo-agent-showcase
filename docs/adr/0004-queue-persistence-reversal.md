@@ -20,15 +20,15 @@ However, after using it interactively and thinking through production scenarios,
 If a user:
 
 1. Goes offline
-2. Creates 5 orders (they queue correctly)
+2. Creates 5 proposal actions (they queue correctly)
 3. Closes the browser tab before coming back online
 4. Reopens the app
 
-...all 5 queued orders are **silently gone**. The queue was in React state, which lives in the JavaScript runtime, which is destroyed when the tab closes.
+...all 5 queued actions are **silently gone**. The queue was in React state, which lives in the JavaScript runtime, which is destroyed when the tab closes.
 
-From a user's perspective, they did the right thing. The system acknowledged their orders. The system lied.
+From a user's perspective, they did the right thing. The system acknowledged their actions. The system lied.
 
-This is worse than showing an error. An error can be corrected. Silent data loss creates operational chaos: the staff thinks the orders went through, the manager reconciles the day and finds missing revenue, and no one knows what happened.
+This is worse than showing an error. An error can be corrected. Silent data loss creates operational chaos: the operator thinks actions went through, the manager reconciles the day and finds missing outputs, and no one knows what happened.
 
 ---
 

@@ -15,9 +15,9 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [1.2.0] — 2026-05-08
 
-### Added
+### Added (1.1.0)
 
-- **Failure-mode demo** — `Simulate Fail` toggle in POS module lets you inject sync failures mid-process and observe the full retry lifecycle
+- **Failure-mode demo** — `Simulate Fail` toggle in Proposal Queue module lets you inject sync failures mid-process and observe the full retry lifecycle
 - **Observability Telemetry Log panel** — real-time trace of every queue state transition (`queued → syncing → synced / failed`) with timestamp, action ID, and event note
 - **`docs/hiring-manager.md`** — one-pager summarising what the repo demonstrates, what production problems it addresses, and where to look
 - **`docs/demo-script.md`** — 90-second guided demo walkthrough with exact DevTools instructions for Steps 1–4
@@ -38,12 +38,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [1.1.0] — 2026-05-07
 
-### Added
+### Added (1.0.0)
 
-- Dark marketing-aligned UI theme (violet/cyan accents, glassy cards matching laundromatai.app)
+- Dark KaOten-aligned UI theme (violet/cyan accents and glassy cards)
 - `hero-card`, `module`, `panel`, `row-card`, `status-pill`, `btn` CSS component classes
 - GitHub Pages deployment via `deploy-pages.yml` workflow
-- Live demo at [seansabado.github.io/laundromatai-showcase](https://seansabado.github.io/laundromatai-showcase/)
+- Live demo at [seansabado.github.io/seo-agent-showcase](https://seansabado.github.io/seo-agent-showcase/)
 
 ### Fixed
 
@@ -60,7 +60,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - `useMachineState` — machine state management (idle / in_use / maintenance)
 - `tenantGuard` — tenant isolation enforcement
 - `callableGuard` — composable auth + tenant + audit wrapper
-- Example POS module with fake line items, orders, machines
+- Example proposal queue module with fake line items, actions, and runners
 - Example tenant switcher
 - Unit tests for queue lifecycle and tenant guard
 - CI quality gate: typecheck + test + build

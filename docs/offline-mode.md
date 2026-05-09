@@ -2,7 +2,7 @@
 
 ## Summary
 
-This guide shows a generic offline-first PWA pattern for POS-like actions. The approach is: capture user intent immediately, store an action queue locally, and sync when connectivity returns.
+This guide shows a generic offline-first PWA pattern for SEO operations actions. The approach is: capture user intent immediately, store an action queue locally, and sync when connectivity returns.
 
 ## Core Pattern
 
@@ -21,7 +21,7 @@ UI Action -> Validate -> Enqueue Locally -> Update UI Optimistically
 Each queued action has:
 
 - actionId
-- type (example: ORDER_CREATE, PAYMENT_CAPTURE)
+- type (example: PROPOSAL_CREATE, RUNNER_SET_STATE)
 - payload (fake, minimal)
 - createdAt
 - retryCount
@@ -34,11 +34,11 @@ Each queued action has:
 3. Mark permanent failures for manual resolution.
 4. Keep idempotency key to prevent duplicate writes.
 
-## Fake POS Example Actions
+## Fake SEO Operations Actions
 
-- ORDER_CREATE: create an order with line items
-- PAYMENT_MARK_PAID: mark order as paid
-- MACHINE_SET_STATE: set machine to in_use or idle
+- PROPOSAL_CREATE: create a proposal action with line items
+- PROPOSAL_MARK_APPROVED: mark proposal action as approved
+- RUNNER_SET_STATE: set runner to in_use or idle
 
 ## Pseudocode
 

@@ -9,12 +9,12 @@ This document describes the production-hardening patterns that go beyond the sho
 
 ## 1. Tenant Isolation Hardening
 
-### In the Showcase
+### In the Showcase (Tenant Isolation)
 
 - `tenantId` is checked at the guard layer before any operation
 - Switching tenants resets all state — no cross-tenant bleed in UI
 
-### Production Additions
+### Production Additions (Tenant Isolation)
 
 - **Firestore security rules** enforce tenant scoping at the database level — even if a client-side bug bypasses the guard, the DB rejects the write
 - **App Check** enforces that only the registered app binary can make API calls — not curl or Postman without attestation
@@ -23,7 +23,7 @@ This document describes the production-hardening patterns that go beyond the sho
 
 ### Example Firestore Rule Pattern (not in showcase — documented here)
 
-```
+```text
 match /tenants/{tenantId}/{document=**} {
   allow read, write: if request.auth != null
     && request.auth.token.tenantId == tenantId;
@@ -34,12 +34,12 @@ match /tenants/{tenantId}/{document=**} {
 
 ## 2. Offline Queue Hardening
 
-### In the Showcase
+### In the Showcase (Offline Queue)
 
 - In-memory queue with explicit lifecycle: `queued → syncing → synced / failed`
 - Retry works on re-calling `processQueue`
 
-### Production Additions
+### Production Additions (Offline Queue)
 
 - **IndexedDB persistence** — queue survives page refresh, app crash, device restart
 - **Exponential backoff** — retries use jitter + exponential delay, not immediate retry on failure
@@ -49,7 +49,7 @@ match /tenants/{tenantId}/{document=**} {
 
 ### Queue State Machine (Production)
 
-```
+```text
 queued
   → syncing        (on sync start)
     → synced       (on success)
@@ -62,11 +62,11 @@ queued
 
 ## 3. Guard Composition Hardening
 
-### In the Showcase
+### In the Showcase (Guard Composition)
 
 - Composable guard wrapper: auth → tenant → role → audit → execute
 
-### Production Additions
+### Production Additions (Guard Composition)
 
 - **Rate limiting** per tenant per callable (prevent abuse by one tenant affecting others)
 - **Request signing** for high-value operations (financial writes, role changes)
@@ -78,11 +78,11 @@ queued
 
 ## 4. Observability Hardening
 
-### In the Showcase
+### In the Showcase (Observability)
 
-- Telemetry log panel in the POS demo — timestamped event trace for queue operations
+- Telemetry log panel in the Proposal Queue demo — timestamped event trace for queue operations
 
-### Production Additions
+### Production Additions (Observability)
 
 - **Cloud Logging** integration — every guard execution, queue event, and sync result written to structured log
 - **Trace IDs** propagated from client request through Cloud Function through Firestore write — full request lineage in one log query

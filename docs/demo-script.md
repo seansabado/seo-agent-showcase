@@ -65,7 +65,7 @@ This script walks through the four key demos in the app. You can run through all
 
 1. Make sure you are **Online**
 2. Create 2–3 proposals while online (they appear with status `created`)
-3. Toggle the **Simulate Fail** switch ON (in the POS module action row)
+3. Toggle the **Simulate Fail** switch ON (in the Proposal Queue module action row)
 4. Click **Sync Queue** (or go offline first to queue some actions, then come back online)
 5. Watch the sync attempt → items move to `failed`
 6. Toggle **Simulate Fail** OFF

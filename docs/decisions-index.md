@@ -24,7 +24,7 @@ Architecture decisions made under time pressure tend to be forgotten or re-litig
 ### [ADR-0002 — Optimistic Offline Queue with Explicit Status Lifecycle](adr/0002-offline-queue-strategy.md)
 
 **Status:** Accepted  
-**Problem:** POS and order management in field environments must tolerate connectivity loss without dropping data or presenting false success states to users.  
+**Problem:** SEO proposal and execution workflows must tolerate connectivity loss without dropping data or presenting false success states to users.  
 **Decision:** Use an optimistic offline queue with explicit per-item status: `queued → syncing → synced / failed`. Never drop a queued item silently.  
 **Tradeoff accepted:** UI must handle "pending" state explicitly. Users see items in queue rather than assuming instant success. This is the right tradeoff — user trust depends on accuracy, not false confidence.
 
