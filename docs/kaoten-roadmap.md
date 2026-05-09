@@ -70,3 +70,4 @@ This roadmap defines a staged path from current showcase maturity to production-
 1. Add owner and target date fields per step.
 2. Track each milestone in changelog entries.
 3. Attach a verification matrix per release candidate.
+4. Align productization tasks with `kaoten-saas-roadmap.md`.

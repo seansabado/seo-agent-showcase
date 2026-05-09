@@ -27,6 +27,8 @@ This is the full documentation index for seo-agent-showcase.
 | [kaoten-api-contracts.md](kaoten-api-contracts.md)                   | Representative guarded API contract definitions |
 | [kaoten-ops-runbook.md](kaoten-ops-runbook.md)                       | Incident handling and operational procedures    |
 | [kaoten-roadmap.md](kaoten-roadmap.md)                               | Step 0 to production readiness roadmap          |
+| [kaoten-seo-agent.md](kaoten-seo-agent.md)                           | Public-safe KaOten system reference             |
+| [kaoten-saas-roadmap.md](kaoten-saas-roadmap.md)                     | Standalone SaaS graduation roadmap              |
 
 ---
 

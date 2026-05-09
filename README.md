@@ -64,6 +64,8 @@ npm run build
 - docs/kaoten-api-contracts.md
 - docs/kaoten-ops-runbook.md
 - docs/kaoten-roadmap.md
+- docs/kaoten-seo-agent.md
+- docs/kaoten-saas-roadmap.md
 
 ## Safe-share boundary
 
