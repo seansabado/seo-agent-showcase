@@ -1,17 +1,17 @@
-# seo-agent-showcase
+# KaOten SEO Agent Showcase
 
 [![CI](https://github.com/seansabado/seo-agent-showcase/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/seansabado/seo-agent-showcase/actions/workflows/ci.yml)
 [![Coverage](https://github.com/seansabado/seo-agent-showcase/actions/workflows/ci.yml/badge.svg?branch=main&label=coverage)](https://github.com/seansabado/seo-agent-showcase/actions/workflows/ci.yml)
 [![Last Commit](https://img.shields.io/github/last-commit/seansabado/seo-agent-showcase?label=last%20commit)](https://github.com/seansabado/seo-agent-showcase/commits/main)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-Stack: React 19, TypeScript, Vite, Vitest, Firebase patterns, multi-tenant SaaS, offline-first execution queue.
+Stack: React 19, TypeScript, Vite, Vitest, Firebase patterns, multi-workspace SEO operations, offline-first execution queue.
 
 Safe to share: no proprietary source, no real campaign data, and no credentials.
 
 ## What this proves quickly
 
-This repo is a runnable engineering showcase for a multi-tenant SEO operations product shell.
+This repo is a runnable engineering showcase for KaOten SEO Agent, focused on SEO operations workflows and queue reliability.
 
 | Pattern                    | What it proves                                      |
 | -------------------------- | --------------------------------------------------- |
@@ -40,7 +40,7 @@ npm run coverage
 npm run build
 ```
 
-## 90-second demo path
+## 90-second KaOten demo path
 
 1. Switch tenant/workspace and confirm state resets cleanly.
 2. Go offline and create proposals from the Proposal Queue module.
@@ -73,8 +73,10 @@ npm run build
 - No real keyword, ranking, or client data.
 - No deployment credentials or infrastructure internals.
 
+This repository is intentionally maintained as a standalone KaOten showcase artifact, separate from production runtime code.
+
 ## Author
 
-Sean Raynon  
+Sean Sabado  
 Founder & CTO - KaOten SEO Agent  
 [https://www.linkedin.com/in/seanraynon/](https://www.linkedin.com/in/seanraynon/)
