@@ -10,6 +10,9 @@ This is the full documentation index for seo-agent-showcase.
 
 | Doc                                                  | Purpose                                         |
 | ---------------------------------------------------- | ----------------------------------------------- |
+| [kaoten-seo-agent.md](kaoten-seo-agent.md)           | Full public-safe KaOten system reference        |
+| [kaoten-overview.md](kaoten-overview.md)             | Product intent, personas, and module map        |
+| [kaoten-saas-roadmap.md](kaoten-saas-roadmap.md)     | Standalone SaaS graduation roadmap              |
 | [hiring-manager.md](hiring-manager.md)               | One-page summary of what this repo demonstrates |
 | [demo-script.md](demo-script.md)                     | 90-second guided walkthrough                    |
 | [interview-walkthrough.md](interview-walkthrough.md) | Interview talking points                        |
@@ -27,8 +30,8 @@ This is the full documentation index for seo-agent-showcase.
 | [kaoten-api-contracts.md](kaoten-api-contracts.md)                   | Representative guarded API contract definitions |
 | [kaoten-ops-runbook.md](kaoten-ops-runbook.md)                       | Incident handling and operational procedures    |
 | [kaoten-roadmap.md](kaoten-roadmap.md)                               | Step 0 to production readiness roadmap          |
-| [kaoten-seo-agent.md](kaoten-seo-agent.md)                           | Public-safe KaOten system reference             |
-| [kaoten-saas-roadmap.md](kaoten-saas-roadmap.md)                     | Standalone SaaS graduation roadmap              |
+| [kaoten-seo-agent.md](kaoten-seo-agent.md)                           | Detailed system reference with workflow summary |
+| [kaoten-saas-roadmap.md](kaoten-saas-roadmap.md)                     | Productization and extraction roadmap           |
 
 ---
 

@@ -9,6 +9,12 @@ Stack: React 19, TypeScript, Vite, Vitest, Firebase patterns, multi-workspace SE
 
 Safe to share: no proprietary source, no real campaign data, and no credentials.
 
+## What KaOten is
+
+KaOten is an AI-native SEO operations system. It is designed to help teams research opportunities, generate structured proposals, approve work through a queue, execute content actions, and track health and ranking outcomes in a controlled workflow.
+
+This repository is the public showcase version of that system: architecture-rich, operationally realistic, and stripped of secrets, customer data, and internal deployment details.
+
 ## What this proves quickly
 
 This repo is a runnable engineering showcase for KaOten SEO Agent, focused on SEO operations workflows and queue reliability.
@@ -21,6 +27,14 @@ This repo is a runnable engineering showcase for KaOten SEO Agent, focused on SE
 | Callable guard composition | Auth + tenant checks + audit wiring stay consistent |
 | Firestore-style hooks      | UI data flow mirrors production query shape         |
 | Role-aware rendering       | Capability visibility changes by preview role       |
+
+## What this repo includes
+
+- A KaOten-styled dashboard shell with role-aware visibility
+- Proposal Queue workflow with offline-safe queue behavior
+- Execution Engine view with runner-state transitions
+- SEO Analytics plan-gating patterns
+- Public-safe KaOten system documentation and roadmap
 
 Live showcase demo: [seansabado.github.io/seo-agent-showcase](https://seansabado.github.io/seo-agent-showcase/)
 
@@ -47,6 +61,13 @@ npm run build
 3. Return online and sync queued actions.
 4. Toggle Simulate Fail and watch retry behavior in telemetry logs.
 
+## Start here if you want the full KaOten story
+
+1. `docs/kaoten-seo-agent.md` — detailed KaOten system reference
+2. `docs/kaoten-overview.md` — product intent, personas, and module map
+3. `docs/kaoten-saas-roadmap.md` — path from embedded tool to standalone SaaS
+4. `docs/kaoten-architecture-deep-dive.md` — reliability and isolation model
+
 ## Docs map
 
 - docs/index.md
@@ -72,6 +93,7 @@ npm run build
 - No production schema, secrets, or integrations.
 - No real keyword, ranking, or client data.
 - No deployment credentials or infrastructure internals.
+- No secret keys, verification tokens, or private infrastructure identifiers.
 
 This repository is intentionally maintained as a standalone KaOten showcase artifact, separate from production runtime code.
 

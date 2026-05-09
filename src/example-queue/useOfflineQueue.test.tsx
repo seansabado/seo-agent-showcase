@@ -7,8 +7,8 @@ describe("useOfflineQueue", () => {
     const { result } = renderHook(() => useOfflineQueue(false));
 
     act(() => {
-      result.current.enqueue("ORDER_CREATE", { orderId: "ord_1" });
-      result.current.enqueue("ORDER_CREATE", { orderId: "ord_2" });
+      result.current.enqueue("PROPOSAL_CREATE", { proposalId: "prop_1" });
+      result.current.enqueue("PROPOSAL_CREATE", { proposalId: "prop_2" });
     });
 
     expect(result.current.queue).toHaveLength(2);
@@ -20,7 +20,7 @@ describe("useOfflineQueue", () => {
     const { result } = renderHook(() => useOfflineQueue(false));
 
     act(() => {
-      result.current.enqueue("ORDER_CREATE", { orderId: "ord_sync" });
+      result.current.enqueue("PROPOSAL_CREATE", { proposalId: "prop_sync" });
     });
 
     await act(async () => {
@@ -35,7 +35,7 @@ describe("useOfflineQueue", () => {
     const { result } = renderHook(() => useOfflineQueue(true));
 
     act(() => {
-      result.current.enqueue("ORDER_CREATE", { orderId: "ord_fail" });
+      result.current.enqueue("PROPOSAL_CREATE", { proposalId: "prop_fail" });
     });
 
     await act(async () => {
@@ -51,7 +51,7 @@ describe("useOfflineQueue", () => {
     const { result } = renderHook(() => useOfflineQueue(false));
 
     act(() => {
-      result.current.enqueue("ORDER_CREATE", { orderId: "ord_trace" });
+      result.current.enqueue("PROPOSAL_CREATE", { proposalId: "prop_trace" });
     });
 
     await act(async () => {
@@ -68,7 +68,7 @@ describe("useOfflineQueue", () => {
     const { result } = renderHook(() => useOfflineQueue(false));
 
     act(() => {
-      result.current.enqueue("ORDER_CREATE", { orderId: "ord_clear" });
+      result.current.enqueue("PROPOSAL_CREATE", { proposalId: "prop_clear" });
     });
 
     await act(async () => {
@@ -91,7 +91,7 @@ describe("useOfflineQueue", () => {
     );
 
     act(() => {
-      result.current.enqueue("ORDER_CREATE", { orderId: "ord_retry" });
+      result.current.enqueue("PROPOSAL_CREATE", { proposalId: "prop_retry" });
     });
 
     // First attempt — fails
@@ -117,7 +117,7 @@ describe("useOfflineQueue", () => {
     const { result } = renderHook(() => useOfflineQueue(false));
 
     act(() => {
-      result.current.enqueue("ORDER_CREATE", { orderId: "ord_skip" });
+      result.current.enqueue("PROPOSAL_CREATE", { proposalId: "prop_skip" });
     });
 
     // Sync once — succeeds
@@ -140,7 +140,7 @@ describe("useOfflineQueue", () => {
     const { result } = renderHook(() => useOfflineQueue(true));
 
     act(() => {
-      result.current.enqueue("ORDER_CREATE", { orderId: "ord_note" });
+      result.current.enqueue("PROPOSAL_CREATE", { proposalId: "prop_note" });
     });
 
     await act(async () => {

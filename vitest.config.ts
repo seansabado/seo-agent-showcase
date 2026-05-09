@@ -8,7 +8,7 @@ export default defineConfig({
       provider: "v8",
       reporter: ["text", "html"],
       include: [
-        "src/example-pos/useOfflineQueue.ts",
+        "src/example-queue/useOfflineQueue.ts",
         "src/example-functions/tenantGuard.ts",
       ],
     },

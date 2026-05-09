@@ -1,13 +1,7 @@
 import { useState } from "react";
 import { X, ChevronRight, ChevronLeft, Sparkles } from "lucide-react";
 
-type View =
-  | "dashboard"
-  | "pos"
-  | "machines"
-  | "queue"
-  | "analytics"
-  | "settings";
+type View = "dashboard" | "proposalQueue" | "executionEngine" | "analytics" | "settings";
 
 interface Step {
   title: string;
@@ -37,13 +31,13 @@ const STEPS: Step[] = [
   {
     title: "Proposal Queue — Task Lifecycle",
     body: "Create proposals, go offline (toggle your browser network), and watch tasks queue. Come back online and sync. Every state transition is recorded in the telemetry log below.",
-    targetView: "pos",
+    targetView: "proposalQueue",
     action: "Open Proposal Queue",
   },
   {
     title: "Execution Engine — Real-time State",
     body: "Toggle runner states between Idle, In Use, and Maintenance. In production this writes to Firestore and broadcasts via onSnapshot to all connected sessions.",
-    targetView: "machines",
+    targetView: "executionEngine",
     action: "Open Execution Engine",
   },
   {

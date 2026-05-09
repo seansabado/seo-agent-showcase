@@ -57,7 +57,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Initial scaffold: React 19 + TypeScript + Vite
 - `useOfflineQueue` — offline queue with `queued → syncing → synced / failed` lifecycle
-- `useMachineState` — machine state management (idle / in_use / maintenance)
+- `useRunnerState` — execution-runner state management (idle / in_use / maintenance)
 - `tenantGuard` — tenant isolation enforcement
 - `callableGuard` — composable auth + tenant + audit wrapper
 - Example proposal queue module with fake line items, actions, and runners

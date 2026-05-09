@@ -1,6 +1,6 @@
-import type { MachineSnapshot, PosLineItem } from "../shared/types/pos";
+import type { ProposalTask, RunnerSnapshot } from "../shared/types/workflow";
 
-export const fakeLineItems: PosLineItem[] = [
+export const fakeProposalTasks: ProposalTask[] = [
   {
     id: "task_page_brief",
     name: "Landing Page Brief + Internal Link Map",
@@ -15,19 +15,19 @@ export const fakeLineItems: PosLineItem[] = [
   },
 ];
 
-export const fakeMachines: MachineSnapshot[] = [
+export const fakeRunners: RunnerSnapshot[] = [
   {
-    machineId: "RUNNER-01",
+    runnerId: "RUNNER-01",
     state: "idle",
     updatedAt: new Date().toISOString(),
   },
   {
-    machineId: "RUNNER-02",
+    runnerId: "RUNNER-02",
     state: "in_use",
     updatedAt: new Date().toISOString(),
   },
   {
-    machineId: "RUNNER-03",
+    runnerId: "RUNNER-03",
     state: "maintenance",
     updatedAt: new Date().toISOString(),
   },

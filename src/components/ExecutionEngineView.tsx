@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useMachineState } from "../example-pos/useMachineState";
+import { useRunnerState } from "../example-queue/useRunnerState";
 import { formatDate } from "../shared/utils/formatDate";
 import { Cpu, Wrench, Play, Pause, AlertCircle } from "lucide-react";
 
@@ -10,58 +10,58 @@ const stateIcon: Record<string, React.ReactNode> = {
 };
 
 const stateClass: Record<string, string> = {
-  idle: "machine-tile machine-idle",
-  in_use: "machine-tile machine-inuse",
-  maintenance: "machine-tile machine-maint",
+  idle: "runner-card runner-idle",
+  in_use: "runner-card runner-active",
+  maintenance: "runner-card runner-maint",
 };
 
-const MACHINE_INFO: Record<string, { type: string; capacity: string }> = {
+const RUNNER_INFO: Record<string, { type: string; capacity: string }> = {
   "RUNNER-01": { type: "Proposal Builder", capacity: "40 jobs/hr" },
   "RUNNER-02": { type: "Schema Injector", capacity: "65 jobs/hr" },
   "RUNNER-03": { type: "Citation Scanner", capacity: "22 jobs/hr" },
 };
 
-export const MachinesView = () => {
-  const { machines, setMachineState } = useMachineState();
+export const ExecutionEngineView = () => {
+  const { runners, setRunnerState } = useRunnerState();
   const [lastAction, setLastAction] = useState<string | null>(null);
 
   const handleState = (
-    machineId: string,
+    runnerId: string,
     state: "idle" | "in_use" | "maintenance",
   ) => {
-    setMachineState(machineId, state);
+    setRunnerState(runnerId, state);
     setLastAction(
-      `${machineId} → ${state.replace("_", " ")} at ${new Date().toLocaleTimeString()}`,
+      `${runnerId} → ${state.replace("_", " ")} at ${new Date().toLocaleTimeString()}`,
     );
   };
 
-  const idleCount = machines.filter((m) => m.state === "idle").length;
-  const inUseCount = machines.filter((m) => m.state === "in_use").length;
-  const maintCount = machines.filter((m) => m.state === "maintenance").length;
+  const idleCount = runners.filter((runner) => runner.state === "idle").length;
+  const inUseCount = runners.filter((runner) => runner.state === "in_use").length;
+  const maintCount = runners.filter((runner) => runner.state === "maintenance").length;
 
   return (
     <div className="dashboard-wrap">
       {/* Summary bar */}
-      <div className="machine-summary-bar">
-        <div className="machine-stat">
+      <div className="runner-summary-bar">
+        <div className="runner-stat">
           <Cpu size={14} />
           <span>
-            Total: <strong>{machines.length}</strong>
+            Total: <strong>{runners.length}</strong>
           </span>
         </div>
-        <div className="machine-stat machine-stat-inuse">
+        <div className="runner-stat runner-stat-active">
           <Play size={13} />
           <span>
-            In Use: <strong>{inUseCount}</strong>
+            Active: <strong>{inUseCount}</strong>
           </span>
         </div>
-        <div className="machine-stat machine-stat-idle">
+        <div className="runner-stat runner-stat-idle">
           <Pause size={13} />
           <span>
             Idle: <strong>{idleCount}</strong>
           </span>
         </div>
-        <div className="machine-stat machine-stat-maint">
+        <div className="runner-stat runner-stat-maint">
           <Wrench size={13} />
           <span>
             Maintenance: <strong>{maintCount}</strong>
@@ -76,46 +76,46 @@ export const MachinesView = () => {
         </div>
       )}
 
-      <div className="machines-card-grid">
-        {machines.map((machine) => {
-          const info = MACHINE_INFO[machine.machineId];
+      <div className="execution-card-grid">
+        {runners.map((runner) => {
+          const info = RUNNER_INFO[runner.runnerId];
           return (
             <article
-              key={machine.machineId}
-              className={stateClass[machine.state] ?? "machine-tile"}
+              key={runner.runnerId}
+              className={stateClass[runner.state] ?? "runner-card"}
             >
-              <div className="machine-tile-header">
-                <span className="machine-id">{machine.machineId}</span>
-                <span className="machine-state-badge">
-                  {stateIcon[machine.state]}
-                  {machine.state.replace("_", " ")}
+              <div className="runner-card-header">
+                <span className="runner-id">{runner.runnerId}</span>
+                <span className="runner-state-badge">
+                  {stateIcon[runner.state]}
+                  {runner.state.replace("_", " ")}
                 </span>
               </div>
               {info && (
-                <div className="machine-tile-meta">
+                <div className="runner-card-meta">
                   <span>{info.type}</span>
                   <span className="muted-row">{info.capacity}</span>
                 </div>
               )}
               <div className="muted-row">
-                Updated: {formatDate(machine.updatedAt)}
+                Updated: {formatDate(runner.updatedAt)}
               </div>
               <div className="chip-row">
                 <button
-                  className={`btn btn-ghost ${machine.state === "idle" ? "btn-ghost-active" : ""}`}
-                  onClick={() => handleState(machine.machineId, "idle")}
+                  className={`btn btn-ghost ${runner.state === "idle" ? "btn-ghost-active" : ""}`}
+                  onClick={() => handleState(runner.runnerId, "idle")}
                 >
                   Idle
                 </button>
                 <button
-                  className={`btn btn-ghost ${machine.state === "in_use" ? "btn-ghost-active" : ""}`}
-                  onClick={() => handleState(machine.machineId, "in_use")}
+                  className={`btn btn-ghost ${runner.state === "in_use" ? "btn-ghost-active" : ""}`}
+                  onClick={() => handleState(runner.runnerId, "in_use")}
                 >
-                  In Use
+                  Active
                 </button>
                 <button
-                  className={`btn btn-ghost ${machine.state === "maintenance" ? "btn-ghost-active" : ""}`}
-                  onClick={() => handleState(machine.machineId, "maintenance")}
+                  className={`btn btn-ghost ${runner.state === "maintenance" ? "btn-ghost-active" : ""}`}
+                  onClick={() => handleState(runner.runnerId, "maintenance")}
                 >
                   Maintenance
                 </button>
@@ -129,7 +129,7 @@ export const MachinesView = () => {
         <h3>About this module</h3>
         <p className="module-subtitle" style={{ marginTop: "6px" }}>
           Execution-runner state transitions are managed via a local state hook
-          that mirrors the Firestore-backed <code>useMachineState</code> hook
+          that mirrors the Firestore-backed <code>useRunnerState</code> hook
           pattern used in production. In the live app, state changes are written
           to{" "}
           <code>

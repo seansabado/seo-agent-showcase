@@ -13,24 +13,18 @@ import {
   Shield,
   Eye,
 } from "lucide-react";
-import { ExamplePosModule } from "./example-pos";
+import { ExampleQueueModule } from "./example-queue";
 import { TenantProvider } from "./example-tenant/tenantSwitcher";
 import { useTenantContext } from "./example-tenant/tenantContext";
 import { DashboardView } from "./components/DashboardView";
-import { MachinesView } from "./components/MachinesView";
+import { ExecutionEngineView } from "./components/ExecutionEngineView";
 import { AnalyticsView } from "./components/AnalyticsView";
 import { SettingsView } from "./components/SettingsView";
 import { GuidedDemo } from "./components/GuidedDemo";
 import { useOnlineStatus } from "./shared/hooks/useOnlineStatus";
 import type { TenantRole } from "./shared/types/tenant";
 
-type View =
-  | "dashboard"
-  | "pos"
-  | "machines"
-  | "queue"
-  | "analytics"
-  | "settings";
+type View = "dashboard" | "proposalQueue" | "executionEngine" | "analytics" | "settings";
 
 const NAV_ITEMS: {
   id: View;
@@ -39,17 +33,16 @@ const NAV_ITEMS: {
   gate?: string;
 }[] = [
   { id: "dashboard", label: "Dashboard", Icon: LayoutDashboard },
-  { id: "pos", label: "Proposal Queue", Icon: Workflow },
-  { id: "machines", label: "Execution Engine", Icon: Cpu },
+  { id: "proposalQueue", label: "Proposal Queue", Icon: Workflow },
+  { id: "executionEngine", label: "Execution Engine", Icon: Cpu },
   { id: "analytics", label: "SEO Analytics", Icon: BarChart3, gate: "Pro+" },
   { id: "settings", label: "Settings", Icon: Settings },
 ];
 
 const VIEW_TITLES: Record<View, string> = {
   dashboard: "Dashboard",
-  pos: "Proposal Queue",
-  machines: "Execution Engine",
-  queue: "Offline Execution Queue",
+  proposalQueue: "Proposal Queue",
+  executionEngine: "Execution Engine",
   analytics: "SEO Analytics",
   settings: "Settings",
 };
@@ -123,7 +116,7 @@ const AdminShell = () => {
           <div className="admin-header-left">
             <h2 className="view-title">{VIEW_TITLES[activeView]}</h2>
             {currentBranch && (
-              <span className="branch-context">
+              <span className="workspace-context">
                 <Building2 size={12} />
                 {currentBranch.name}
               </span>
@@ -240,12 +233,12 @@ const AdminShell = () => {
         {/* Content */}
         <main className="admin-content">
           {activeView === "dashboard" && <DashboardView />}
-          {activeView === "pos" && (
+          {activeView === "proposalQueue" && (
             <div className="module-wrap">
-              <ExamplePosModule />
+              <ExampleQueueModule />
             </div>
           )}
-          {activeView === "machines" && <MachinesView />}
+          {activeView === "executionEngine" && <ExecutionEngineView />}
           {activeView === "analytics" && <AnalyticsView />}
           {activeView === "settings" && <SettingsView />}
         </main>

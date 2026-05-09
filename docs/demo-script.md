@@ -55,7 +55,7 @@ This script walks through the four key demos in the app. You can run through all
 
 - Offline-first behavior with explicit status lifecycle
 - No silent data loss under connectivity failure
-- See `src/example-pos/useOfflineQueue.ts` for queue implementation
+- See `src/example-queue/useOfflineQueue.ts` for queue implementation
 
 ---
 

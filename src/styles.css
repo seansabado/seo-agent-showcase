@@ -680,7 +680,7 @@ h3 {
   margin: 0;
 }
 
-.branch-context {
+.workspace-context {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -1012,14 +1012,14 @@ h3 {
   align-content: start;
 }
 
-/* ── Orders table ────────────────────────────────── */
-.orders-table {
+/* ── Proposal table ──────────────────────────────── */
+.proposal-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 13px;
 }
 
-.orders-table thead th {
+.proposal-table thead th {
   padding: 6px 10px;
   text-align: left;
   font-size: 11px;
@@ -1030,21 +1030,21 @@ h3 {
   border-bottom: 1px solid rgb(148 163 184 / 0.18);
 }
 
-.orders-table tbody td {
+.proposal-table tbody td {
   padding: 9px 10px;
   color: #cbd5e1;
   border-bottom: 1px solid rgb(148 163 184 / 0.08);
 }
 
-.orders-table tbody tr:last-child td {
+.proposal-table tbody tr:last-child td {
   border-bottom: none;
 }
 
-.orders-table tbody tr:hover td {
+.proposal-table tbody tr:hover td {
   background: rgb(255 255 255 / 0.025);
 }
 
-.order-id-cell {
+.proposal-id-cell {
   font-family: "JetBrains Mono", monospace;
   font-size: 11px;
   color: #64748b !important;
@@ -1097,14 +1097,14 @@ h3 {
   border: 1px solid rgb(245 158 11 / 0.3);
 }
 
-/* ── Machine tiles ───────────────────────────────── */
-.machine-grid {
+/* ── Runner cards ────────────────────────────────── */
+.runner-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 8px;
 }
 
-.machine-tile {
+.runner-card {
   border-radius: 10px;
   padding: 10px 12px;
   border: 1px solid rgb(148 163 184 / 0.2);
@@ -1113,43 +1113,43 @@ h3 {
   gap: 3px;
 }
 
-.machine-idle {
+.runner-idle {
   border-left: 3px solid #64748b;
 }
-.machine-inuse {
+.runner-active {
   border-left: 3px solid #7c3aed;
   background: rgb(124 58 237 / 0.07);
 }
-.machine-maint {
+.runner-maint {
   border-left: 3px solid #d97706;
   background: rgb(217 119 6 / 0.07);
 }
 
-.machine-id {
+.runner-id {
   font-weight: 700;
   font-size: 13px;
   color: #e2e8f0;
 }
-.machine-type {
+.runner-type {
   font-size: 12px;
   color: #64748b;
 }
 
-.machine-state-dot {
+.runner-state-dot {
   display: none;
 }
 
-.machine-state-label {
+.runner-state-label {
   font-size: 11px;
   font-weight: 600;
   text-transform: capitalize;
   color: #94a3b8;
 }
 
-.machine-inuse .machine-state-label {
+.runner-active .runner-state-label {
   color: #a78bfa;
 }
-.machine-maint .machine-state-label {
+.runner-maint .runner-state-label {
   color: #fbbf24;
 }
 
@@ -1191,9 +1191,9 @@ h3 {
 }
 
 /* ═══════════════════════════════════════════════════
-   MACHINES VIEW
+  EXECUTION ENGINE VIEW
 ═══════════════════════════════════════════════════ */
-.machine-summary-bar {
+.runner-summary-bar {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -1203,7 +1203,7 @@ h3 {
   background: rgb(15 23 42 / 0.5);
 }
 
-.machine-stat {
+.runner-stat {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -1211,16 +1211,16 @@ h3 {
   color: #94a3b8;
 }
 
-.machine-stat strong {
+.runner-stat strong {
   color: #e2e8f0;
 }
-.machine-stat-inuse {
+.runner-stat-active {
   color: #a78bfa;
 }
-.machine-stat-idle {
+.runner-stat-idle {
   color: #64748b;
 }
-.machine-stat-maint {
+.runner-stat-maint {
   color: #fbbf24;
 }
 
@@ -1236,19 +1236,19 @@ h3 {
   font-size: 12px;
 }
 
-.machines-card-grid {
+.execution-card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 12px;
 }
 
-.machine-tile-header {
+.runner-card-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.machine-state-badge {
+.runner-state-badge {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -1261,16 +1261,16 @@ h3 {
   color: #94a3b8;
 }
 
-.machine-inuse .machine-state-badge {
+.runner-active .runner-state-badge {
   background: rgb(124 58 237 / 0.18);
   color: #a78bfa;
 }
-.machine-maint .machine-state-badge {
+.runner-maint .runner-state-badge {
   background: rgb(217 119 6 / 0.2);
   color: #fbbf24;
 }
 
-.machine-tile-meta {
+.runner-card-meta {
   display: flex;
   gap: 8px;
   font-size: 12px;

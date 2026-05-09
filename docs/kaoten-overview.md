@@ -6,6 +6,8 @@ KaOten SEO Agent is a multi-tenant SEO operations platform pattern that combines
 
 This showcase is intentionally safe-share: fake data, generic abstractions, and no tenant secrets.
 
+KaOten is not just a dashboard skin. It is a system concept for turning SEO execution into a governed, inspectable workflow.
+
 ## Product Intent
 
 KaOten is designed for teams that need to ship SEO work consistently across many clients without losing operational control.
@@ -16,6 +18,17 @@ Core outcomes:
 - Lower execution risk via explicit queue states and retries
 - Clear tenant/workspace isolation across all operations
 - Better reviewability through telemetry and role-scoped visibility
+- Better operator confidence through visible approval, execution, and audit steps
+
+## What makes KaOten different
+
+KaOten treats SEO as operations, not just content generation. Its core posture is:
+
+- policy before publishing
+- queue before execution
+- audit trail before celebration
+- health scoring after output
+- rank monitoring after deployment
 
 ## Primary Personas
 
@@ -35,6 +48,14 @@ Core outcomes:
 | SEO Analytics    | Plan-gated insight surface             | trend readiness, workspace-level visibility      |
 | Settings         | Context and policy controls            | preview role behavior, enabled capabilities      |
 
+## Operational Flow
+
+```text
+Signal -> Research -> Queue -> Execute -> Re-score -> Rank check -> Activity review
+```
+
+That loop is the heart of KaOten: every content action should be explainable before and after execution.
+
 ## Showcase Boundaries
 
 - Included: architecture patterns, queue lifecycle, guard patterns, role-aware UI behavior
@@ -53,4 +74,5 @@ The showcase prioritizes architectural judgment over domain confidentiality. The
 
 1. Pair this document with `kaoten-architecture-deep-dive.md` for system internals.
 2. Review `kaoten-ops-runbook.md` for incident and recovery flows.
-3. Use `kaoten-roadmap.md` to align delivery phases.
+3. Use `kaoten-seo-agent.md` for the fuller public-safe system reference.
+4. Use `kaoten-roadmap.md` and `kaoten-saas-roadmap.md` to align delivery phases.

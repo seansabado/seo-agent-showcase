@@ -1,43 +1,43 @@
 import { useMemo, useState } from "react";
-import { fakeLineItems } from "./fakeData";
+import { fakeProposalTasks } from "./fakeData";
 import { useOfflineQueue } from "./useOfflineQueue";
-import { useMachineState } from "./useMachineState";
+import { useRunnerState } from "./useRunnerState";
 import { makeId } from "../shared/utils/id";
 import { formatCurrency } from "../shared/utils/formatCurrency";
 import { formatDate } from "../shared/utils/formatDate";
 import { useOnlineStatus } from "../shared/hooks/useOnlineStatus";
-import type { PosOrder } from "../shared/types/pos";
+import type { ProposalRecord } from "../shared/types/workflow";
 
-export const ExamplePosModule = () => {
-  const [orders, setOrders] = useState<PosOrder[]>([]);
+export const ExampleQueueModule = () => {
+  const [proposals, setProposals] = useState<ProposalRecord[]>([]);
   const [simulateFailure, setSimulateFailure] = useState(false);
   const { queue, enqueue, processQueue, pendingCount, traceLog, clearLog } =
     useOfflineQueue(simulateFailure);
-  const { machines, setMachineState } = useMachineState();
+  const { runners, setRunnerState } = useRunnerState();
   const isOnline = useOnlineStatus();
 
   const total = useMemo(
     () =>
-      fakeLineItems.reduce((sum, item) => sum + item.qty * item.unitPrice, 0),
+      fakeProposalTasks.reduce((sum, item) => sum + item.qty * item.unitPrice, 0),
     [],
   );
 
-  const createFakeOrder = () => {
-    const order: PosOrder = {
-      id: makeId("order"),
+  const createFakeProposal = () => {
+    const proposal: ProposalRecord = {
+      id: makeId("proposal"),
       tenantId: "tenant_demo_1",
       createdAt: new Date().toISOString(),
       status: isOnline ? "created" : "queued",
-      items: fakeLineItems,
+      items: fakeProposalTasks,
       total,
     };
 
-    setOrders((prev) => [order, ...prev]);
+    setProposals((prev) => [proposal, ...prev]);
 
     if (!isOnline) {
-      enqueue("ORDER_CREATE", {
-        orderId: order.id,
-        total: order.total,
+      enqueue("PROPOSAL_CREATE", {
+        proposalId: proposal.id,
+        total: proposal.total,
       });
     }
   };
@@ -71,7 +71,7 @@ export const ExamplePosModule = () => {
       </header>
 
       <div className="action-row">
-        <button className="btn btn-primary" onClick={createFakeOrder}>
+        <button className="btn btn-primary" onClick={createFakeProposal}>
           Create Fake Proposal
         </button>
         <button
@@ -99,33 +99,33 @@ export const ExamplePosModule = () => {
         <section className="panel">
           <h3>Execution Runners</h3>
           <div className="list-stack">
-            {machines.map((machine) => (
-              <article key={machine.machineId} className="row-card">
+            {runners.map((runner) => (
+              <article key={runner.runnerId} className="row-card">
                 <div>
-                  <strong>{machine.machineId}</strong>
+                  <strong>{runner.runnerId}</strong>
                   <div className="muted-row">
-                    State: {machine.state} | Updated:{" "}
-                    {formatDate(machine.updatedAt)}
+                    State: {runner.state} | Updated: {" "}
+                    {formatDate(runner.updatedAt)}
                   </div>
                 </div>
 
                 <div className="chip-row">
                   <button
                     className="btn btn-ghost"
-                    onClick={() => setMachineState(machine.machineId, "idle")}
+                    onClick={() => setRunnerState(runner.runnerId, "idle")}
                   >
                     Idle
                   </button>
                   <button
                     className="btn btn-ghost"
-                    onClick={() => setMachineState(machine.machineId, "in_use")}
+                    onClick={() => setRunnerState(runner.runnerId, "in_use")}
                   >
-                    In Use
+                    Active
                   </button>
                   <button
                     className="btn btn-ghost"
                     onClick={() =>
-                      setMachineState(machine.machineId, "maintenance")
+                      setRunnerState(runner.runnerId, "maintenance")
                     }
                   >
                     Maintenance
@@ -137,17 +137,17 @@ export const ExamplePosModule = () => {
         </section>
 
         <section className="panel">
-          <h3>Orders</h3>
-          {orders.length === 0 ? (
-            <p className="muted-empty">No orders yet.</p>
+          <h3>Proposal Drafts</h3>
+          {proposals.length === 0 ? (
+            <p className="muted-empty">No proposals yet.</p>
           ) : null}
           <div className="list-stack">
-            {orders.map((order) => (
-              <article key={order.id} className="row-card compact">
-                <div>Order: {order.id}</div>
-                <div>Created: {formatDate(order.createdAt)}</div>
-                <div>Status: {order.status}</div>
-                <div>Estimated value: {formatCurrency(order.total)}</div>
+            {proposals.map((proposal) => (
+              <article key={proposal.id} className="row-card compact">
+                <div>Proposal: {proposal.id}</div>
+                <div>Created: {formatDate(proposal.createdAt)}</div>
+                <div>Status: {proposal.status}</div>
+                <div>Estimated value: {formatCurrency(proposal.total)}</div>
               </article>
             ))}
           </div>

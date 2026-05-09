@@ -35,7 +35,7 @@ const RECENT_ORDERS = [
     customer: "dentist seo philippines",
     status: "completed",
     total: 1200,
-    branch: "Local SEO Workspace",
+    workspace: "Local SEO Workspace",
     createdAt: new Date(Date.now() - 8 * 60 * 1000).toISOString(),
   },
   {
@@ -43,7 +43,7 @@ const RECENT_ORDERS = [
     customer: "quezon city orthodontist",
     status: "in_progress",
     total: 860,
-    branch: "Content Ops Workspace",
+    workspace: "Content Ops Workspace",
     createdAt: new Date(Date.now() - 22 * 60 * 1000).toISOString(),
   },
   {
@@ -51,7 +51,7 @@ const RECENT_ORDERS = [
     customer: "law firm seo checklist",
     status: "completed",
     total: 1440,
-    branch: "Authority Campaigns",
+    workspace: "Authority Campaigns",
     createdAt: new Date(Date.now() - 41 * 60 * 1000).toISOString(),
   },
   {
@@ -59,7 +59,7 @@ const RECENT_ORDERS = [
     customer: "injury attorney local map pack",
     status: "queued",
     total: 980,
-    branch: "Multi-location Rollout",
+    workspace: "Multi-location Rollout",
     createdAt: new Date(Date.now() - 58 * 60 * 1000).toISOString(),
   },
   {
@@ -67,12 +67,12 @@ const RECENT_ORDERS = [
     customer: "hvac seo service page template",
     status: "completed",
     total: 1320,
-    branch: "Content Ops Workspace",
+    workspace: "Content Ops Workspace",
     createdAt: new Date(Date.now() - 90 * 60 * 1000).toISOString(),
   },
 ];
 
-const MACHINE_SUMMARY = [
+const RUNNER_SUMMARY = [
   { id: "RUNNER-01", type: "Proposal Builder", state: "in_use" },
   { id: "RUNNER-02", type: "Proposal Builder", state: "idle" },
   { id: "RUNNER-03", type: "Content Optimizer", state: "idle" },
@@ -95,10 +95,10 @@ const statusClass: Record<string, string> = {
   failed: "badge-red",
 };
 
-const machineClass: Record<string, string> = {
-  idle: "machine-idle",
-  in_use: "machine-inuse",
-  maintenance: "machine-maint",
+const runnerClass: Record<string, string> = {
+  idle: "runner-idle",
+  in_use: "runner-active",
+  maintenance: "runner-maint",
 };
 
 export const DashboardView = () => {
@@ -127,7 +127,7 @@ export const DashboardView = () => {
         <KpiCard
           label="Active Keywords"
           value="23"
-          sub={`${currentBranch?.name ?? "All branches"}`}
+          sub={`${currentBranch?.name ?? "All workspaces"}`}
           icon={<FileText size={18} />}
           accent="cyan"
         />
@@ -151,7 +151,7 @@ export const DashboardView = () => {
         {/* Recent orders */}
         <section className="panel dashboard-panel">
           <h3>Recent Proposals</h3>
-          <table className="orders-table">
+          <table className="proposal-table">
             <thead>
               <tr>
                 <th>Proposal</th>
@@ -165,9 +165,9 @@ export const DashboardView = () => {
             <tbody>
               {RECENT_ORDERS.map((order) => (
                 <tr key={order.id}>
-                  <td className="order-id-cell">{order.id.slice(0, 12)}</td>
+                  <td className="proposal-id-cell">{order.id.slice(0, 12)}</td>
                   <td>{order.customer}</td>
-                  <td className="muted-cell">{order.branch}</td>
+                  <td className="muted-cell">{order.workspace}</td>
                   <td>
                     <span
                       className={`badge ${statusClass[order.status] ?? "badge-slate"}`}
@@ -186,16 +186,16 @@ export const DashboardView = () => {
         {/* Machine summary */}
         <section className="panel dashboard-panel">
           <h3>Execution Fleet</h3>
-          <div className="machine-grid">
-            {MACHINE_SUMMARY.map((m) => (
+          <div className="runner-grid">
+            {RUNNER_SUMMARY.map((m) => (
               <article
                 key={m.id}
-                className={`machine-tile ${machineClass[m.state] ?? ""}`}
+                className={`runner-card ${runnerClass[m.state] ?? ""}`}
               >
-                <span className="machine-id">{m.id}</span>
-                <span className="machine-type">{m.type}</span>
-                <span className="machine-state-dot" />
-                <span className="machine-state-label">
+                <span className="runner-id">{m.id}</span>
+                <span className="runner-type">{m.type}</span>
+                <span className="runner-state-dot" />
+                <span className="runner-state-label">
                   {m.state.replace("_", " ")}
                 </span>
               </article>
