@@ -24,7 +24,12 @@ import { GuidedDemo } from "./components/GuidedDemo";
 import { useOnlineStatus } from "./shared/hooks/useOnlineStatus";
 import type { TenantRole } from "./shared/types/tenant";
 
-type View = "dashboard" | "proposalQueue" | "executionEngine" | "analytics" | "settings";
+type View =
+  | "dashboard"
+  | "proposalQueue"
+  | "executionEngine"
+  | "analytics"
+  | "settings";
 
 const NAV_ITEMS: {
   id: View;
@@ -81,7 +86,7 @@ const AdminShell = () => {
       <aside className="sidebar">
         <div className="sidebar-logo">
           <span className="sidebar-wordmark">KaOten SEO Agent</span>
-          <span className="sidebar-build-tag">Showcase</span>
+          <span className="sidebar-build-tag">Official Showcase</span>
         </div>
 
         <nav className="sidebar-nav">
