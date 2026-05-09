@@ -56,6 +56,15 @@ npm run build
 - docs/decisions-index.md
 - docs/case-study.md
 
+## KaOten documentation set
+
+- docs/kaoten-overview.md
+- docs/kaoten-architecture-deep-dive.md
+- docs/kaoten-module-catalog.md
+- docs/kaoten-api-contracts.md
+- docs/kaoten-ops-runbook.md
+- docs/kaoten-roadmap.md
+
 ## Safe-share boundary
 
 - No production schema, secrets, or integrations.

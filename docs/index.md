@@ -17,6 +17,19 @@ This is the full documentation index for seo-agent-showcase.
 
 ---
 
+## KaOten Core Docs
+
+| Doc                                                                  | Purpose                                         |
+| -------------------------------------------------------------------- | ----------------------------------------------- |
+| [kaoten-overview.md](kaoten-overview.md)                             | KaOten product intent, personas, and module map |
+| [kaoten-architecture-deep-dive.md](kaoten-architecture-deep-dive.md) | Deep architecture details and lifecycle flows   |
+| [kaoten-module-catalog.md](kaoten-module-catalog.md)                 | Detailed module responsibilities and states     |
+| [kaoten-api-contracts.md](kaoten-api-contracts.md)                   | Representative guarded API contract definitions |
+| [kaoten-ops-runbook.md](kaoten-ops-runbook.md)                       | Incident handling and operational procedures    |
+| [kaoten-roadmap.md](kaoten-roadmap.md)                               | Step 0 to production readiness roadmap          |
+
+---
+
 ## Architecture
 
 | Doc                                                                              | Purpose                      |

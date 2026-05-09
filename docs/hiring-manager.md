@@ -53,6 +53,17 @@ These are real production-grade concerns in multi-tenant SaaS systems:
 6. **[docs/adr/](adr/)** — three ADRs explaining key architectural decisions
 7. **[docs/interview-walkthrough.md](interview-walkthrough.md)** — how I'd explain this in a technical interview
 
+## KaOten Documentation Depth
+
+For detailed product and system documentation, review:
+
+1. **[kaoten-overview.md](kaoten-overview.md)** — product context, personas, and value proposition
+2. **[kaoten-architecture-deep-dive.md](kaoten-architecture-deep-dive.md)** — isolation model, queue lifecycle, and reliability controls
+3. **[kaoten-module-catalog.md](kaoten-module-catalog.md)** — module-by-module behavior and expected outputs
+4. **[kaoten-api-contracts.md](kaoten-api-contracts.md)** — representative request/response contracts and error model
+5. **[kaoten-ops-runbook.md](kaoten-ops-runbook.md)** — incident triage and recovery procedures
+6. **[kaoten-roadmap.md](kaoten-roadmap.md)** — staged maturity path to production readiness
+
 ---
 
 ## Relevant Experience Context
